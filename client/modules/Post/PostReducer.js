@@ -8,12 +8,12 @@ const PostReducer = (state = initialState, action) => {
     case ADD_POST :
       return {
         data: [action.post, ...state.data],
-        votes: 0
       };
 
     case ADD_POSTS :
       return {
         data: action.posts,
+        votes: 0
       };
 
     case DELETE_POST :
@@ -26,13 +26,13 @@ const PostReducer = (state = initialState, action) => {
         data: state.data.map(post => {return post.cuid === action.cuid ? Object.assign({}, post, action.post) : post })
       };
 
-    case THUMB_DOWN_POST:
-    return state.map(post => post.cuid === action.cuid
+    case THUMB_UP_POST:
+    return state.data.map(post => post.cuid === action.cuid
       ? {...post, votes: post.votes +1}
       : post);
 
     case THUMB_DOWN_POST:
-    return state.map(post => post.cuid === action.cuid
+    return state.data.map(post => post.cuid === action.cuid
       ? {...post, votes: post.votes -1}
       : post);
 

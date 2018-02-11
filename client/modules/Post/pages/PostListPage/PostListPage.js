@@ -6,7 +6,7 @@ import PostList from '../../components/PostList';
 import PostCreateWidget from '../../components/PostCreateWidget/PostCreateWidget';
 
 // Import Actions
-import { addPostRequest, fetchPosts, deletePostRequest, thumbsUpRequest, thumbsDownRequest, thumbsDown } from '../../PostActions';
+import { addPostRequest, fetchPosts, deletePostRequest, thumbsUpRequest, thumbsDownRequest } from '../../PostActions';
 import { toggleAddPost } from '../../../App/AppActions';
 
 // Import Selectors
@@ -63,7 +63,6 @@ PostListPage.propTypes = {
     name: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
-    votes: PropTypes.number.isRequired,
   })).isRequired,
   showAddPost: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
