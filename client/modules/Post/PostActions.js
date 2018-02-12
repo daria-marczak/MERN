@@ -76,7 +76,8 @@ export function editPostRequest(cuid, post) {
       post: {
         name: post.name,
         title: post.title,
-        content: post.content
+        content: post.content,
+        votes: post.votes
       }
     }).then(() => dispatch(editPost(cuid, post)));
   };
@@ -89,17 +90,8 @@ export function thumbsUp(cuid) {
   }
 }
 
-export function thumbsUpRequest(cuid) {
-  return (dispatch) => {
-    return callApi(`posts/${cuid}`, 'put', {
-      post: {
-        name: post.name,
-        title: post.title,
-        content: post.content,
-        votes: post.votes +1
-      }
-    }).then(() => dispatch(editPost(cuid, post)));
-  };
+export function thumbsUpRequest(post) {
+  return editPostRequest(post.cuid, { ...post, votes: post.votes + 1 });
 }
 
 export function thumbsDown(cuid) {
@@ -109,15 +101,6 @@ export function thumbsDown(cuid) {
   }
 }
 
-export function thumbsDownRequest(cuid) {
-  return (dispatch) => {
-    return callApi(`posts/${cuid}`, 'put', {
-      post: {
-        name: post.name,
-        title: post.title,
-        content: post.content,
-        votes: post.votes -1
-      }
-    }).then(() => dispatch(editPost(cuid, post)));
-  };
+export function thumbsDownRequest(post) {
+  return editPostRequest(post.cuid, { ...post, votes: post.votes - 1 });
 }

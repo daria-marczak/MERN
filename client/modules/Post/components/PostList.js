@@ -12,8 +12,8 @@ function PostList(props) {
             post={post}
             key={post.cuid}
             onDelete={() => props.handleDeletePost(post.cuid)}
-            thumbsUp={() => props.thumbsUp(post.cuid)}
-            thumbsDown={() => props.thumbsDown(post.cuid)}
+            thumbsUp={() => props.thumbsUp(post)}
+            thumbsDown={() => props.thumbsDown(post)}
           />
         ))
       }
