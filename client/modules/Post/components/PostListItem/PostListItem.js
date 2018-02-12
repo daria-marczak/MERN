@@ -8,12 +8,12 @@ import styles from './PostListItem.css';
 function PostListItem(props) {
   return (
     <div className={styles['single-post']}>
+      <div className={styles['votes']}>{props.post.votes}</div>
       <h3 className={styles['post-title']}>
         <Link to={`/posts/${props.post.slug}-${props.post.cuid}`} >
           {props.post.title}
         </Link>
       </h3>
-      <div className={styles['votes']}>{props.post.votes}</div>
       <p className={styles['author-name']}><FormattedMessage id="by" /> {props.post.name}</p>
       <p className={styles['post-desc']}>{props.post.content}</p>
       <button className={styles['button']} onClick={props.thumbsUp}>Thumbs up</button>
@@ -30,8 +30,7 @@ PostListItem.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
-    cuid: PropTypes.string.isRequired,
-    votes: PropTypes.number.isRequired
+    cuid: PropTypes.string.isRequired
   }).isRequired,
   onDelete: PropTypes.func.isRequired,
   thumbsUp: PropTypes.func.isRequired,

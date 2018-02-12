@@ -67,6 +67,7 @@ textarea {
 }
 
 .post-title{
+  display: inline-block;
   font-size: 28px;
   margin-bottom: 16px;
   font-weight: 400;
@@ -75,7 +76,8 @@ textarea {
 
 .post-title a{
   text-decoration: none;
-  color: #616161;
+  font-weight: bold;
+  color: #EF5350;
 }
 
 .author-name{
@@ -85,7 +87,7 @@ textarea {
 }
 
 .post-desc{
-  font-size: 14px;
+  font-size: 18px;
   color: #888;
   margin-bottom: 8px;
 }
@@ -128,4 +130,13 @@ button {
   color: white;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.votes {
+  display: inline-block;
+  margin-right: 2rem;
+  padding: 1rem 1.5rem;
+  background-color: #EF5350;
+  color: white;
+  font-weight: bold;
 }
